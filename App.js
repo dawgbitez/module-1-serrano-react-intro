@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { ScrollView, StyleSheet, Text, View } from 'react-native';
 import { StatusBar } from 'expo-status-bar';
 import CampusCard from './src/components/CampusCard';
+import { campusActivities } from './src/data/campusActivities';
 
 export default function App() {
   // STEP 6: When instructed, replace null with the selected activity object.
@@ -24,36 +25,18 @@ export default function App() {
       {/* STEP 1: Type exactly: What's Happening? */}
       <Text style={styles.sectionTitle}>What's Happening?</Text>
 
-      {/* STEP 2: Complete the first activity card with the exact text shown in README.md. */}
-    <CampusCard
-      emoji="🎮"
-      title="Game Lounge"
-      description="Drop in, play games, and meet other students."
-      status="OPEN TODAY"
-      accent="#8B5CF6"
-      isSelected={selectedActivity === 'Game Lounge'}
-      onPress={() => setSelectedActivity('Game Lounge')}
-    />
-
-    <CampusCard
-      emoji="📚"
-      title="Study Jam"
-      description="Find a study space and get ready for your next exam."
-      status="STUDY NOW"
-      accent="#22D3EE"
-      isSelected={setSelectedActivity === 'Study Jam'}
-      onPress={() => setSelectedActivity('Sttudy Jam')}
-    />
-
-    <CampusCard
-      emoji="🍕"
-      title="Campus Eats"
-      description="Find food, snacks, and student dining options around campus."
-      status="GET FOOD"
-      accent="#FB923C"
-      isSelected={setSelectedActivity === 'Campus Eats'}
-      onPress={() => setSelectedActivity('Campus Eats')}
-    />  
+    {campusActivities.map((activity) => (
+      <CampusCard
+        key={activity.id}
+        emoji={activity.emoji}
+        title={activity.title}
+        description={activity.description}
+        status={activity.status}
+        accent={activity.accent}
+        isSelected={selectedActivity === activity.title}
+        onPress={() => setSelectedActivity(activity.title)}
+      />
+))}
       {/*
         STEP 4:
         After you create CampusCard.js, replace the three hard-coded cards above
