@@ -25,4 +25,13 @@ export const campusActivities = [
     status: 'GET FOOD',
     accent: '#FB923C',
   },
+
+{
+  id: '4',
+  emoji: '♣️',
+  title: 'Join a Club',
+  description: 'Join a club and meet other students with the same interest or goals.',
+  status: 'JOIN TODAY',
+  accent: '#F472B6',
+},
 ];
